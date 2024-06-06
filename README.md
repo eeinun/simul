@@ -1,2 +1,3 @@
 # simul
-배운거 모작
+- distance_vector: for routing. simulate inter-network
+- cache_sim: simulate simplified MIPS cache mechanism (HIT/MISS)
