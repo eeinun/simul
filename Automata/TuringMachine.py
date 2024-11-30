@@ -100,25 +100,6 @@ class TuringMachine:
     def load(self, input_string: str):
         self.tape.load(input_string)
 
-    def compute_with_input(self, input_string, v=0):
-        current_state = self.initial_state
-        for current_input_symbol in input_string:
-            if current_input_symbol not in self.transitions[current_state]:
-                break
-            p = f"({current_state}, {current_input_symbol})"
-            current_state, output, direction = self.transitions[current_state][current_input_symbol]
-            self.tape.write(output)
-            self.tape.move(direction)
-            if v:
-                self.tape.disp(desc=f"delta({p})=({current_state}, {output}, {'L' if direction else 'R'})")
-        if current_state in self.final_states:
-            if v:
-                print(f"{input_string} is accepted")
-            return True
-        if v:
-            print(f"{input_string} is not accepted at delta({current_state}, {current_input_symbol})")
-        return False
-
     def compute(self, v=0):
         current_state = self.initial_state
         current_tape_symbol = self.blank_symbol
