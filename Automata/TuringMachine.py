@@ -130,7 +130,7 @@ def transition_parser(string):
     for i in l:
         if i.strip().startswith("//"):
             continue
-        prs = ([(None, None)] + re.findall(r'([\w\d_#]+)\s*,\s*([\w\d_#])\s*-+>\s*([\w\d_#]+)\s*,\s*([\w\d_#])\s*,\s*([LR])', i.strip()))[-1]
+        prs = ([(None, None)] + re.findall(r'([\w\d_]+)\s*,\s*([\w\d_])\s*-+>\s*([\w\d_]+)\s*,\s*([\w\d_])\s*,\s*([LR])', i.strip()))[-1]
         if len(prs) != 5:
             continue
         [q0, a, q1, b, di] = prs
